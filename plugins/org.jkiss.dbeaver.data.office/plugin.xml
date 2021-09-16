@@ -28,7 +28,7 @@
                               label="%dataTransfer.processor.xlsx.property.headerFont.name"
                               required="false"
                               type="string[]"
-                              validValues="Arial,Times New Roman,Liberation Sans,Comic Sans MS"/>
+                              validValues="Arial,Times New Roman,Liberation Sans,Comic Sans MS,AlexBrush,ArianaVioleta,BelieveIt,RemachineScript,Roboto"/>
                         <property id="headerfontstyle" label="%dataTransfer.processor.xlsx.property.headerFontStyle.name" type="string" description="%dataTransfer.processor.xlsx.property.headerFontStyle.description" defaultValue="BOLD" required="false" validValues="NONE,BOLD,ITALIC,STRIKEOUT,UNDERLINE"/>
                         <property id="trueString" label="%dataTransfer.processor.xlsx.property.boolStringTrue.name" type="string" description="%dataTransfer.processor.xlsx.property.boolStringTrue.description" defaultValue="true" required="false"/>
                         <property id="falseString" label="%dataTransfer.processor.xlsx.property.boolStringFalse.name" type="string" description="%dataTransfer.processor.xlsx.property.boolStringFalse.description" defaultValue="false" required="false"/>
