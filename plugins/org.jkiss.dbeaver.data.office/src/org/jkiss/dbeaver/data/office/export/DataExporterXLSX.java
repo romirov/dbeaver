@@ -40,14 +40,12 @@ import org.jkiss.dbeaver.tools.transfer.stream.IStreamDataExporterSite;
 import org.jkiss.dbeaver.tools.transfer.stream.exporter.StreamExporterAbstract;
 import org.jkiss.dbeaver.utils.ContentUtils;
 import org.jkiss.utils.CommonUtils;
-
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
@@ -218,7 +216,6 @@ public class DataExporterXLSX extends StreamExporterAbstract {
 
         String fontName = null;
         try {
-        	
         	for(String fontTemplate : fontSystemNames) {
         		if(fontTemplate.equals(CommonUtils.toString(properties.get(PROP_HEADER_FONT)))) {
         			fontName = CommonUtils.toString(properties.get(PROP_HEADER_FONT));
@@ -226,27 +223,11 @@ public class DataExporterXLSX extends StreamExporterAbstract {
         		}
         	}
         	
-        	for(String fontTemplate : fontCustomNames) {
-        		if(fontTemplate.equals(CommonUtils.toString(properties.get(PROP_HEADER_FONT)))) {
-        			try {
-        			     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        			     Path path = Paths.get(System.getProperty("user.dir"));
-        			     System.out.println(path.toAbsolutePath());
-        			     File file = new File(path + "/fonts/" + fontTemplate +".ttf");
-        			     System.out.println(file.getAbsolutePath());
-        			     Font font = Font.createFont(Font.TRUETYPE_FONT, file); 
-        			     fontName = font.getFontName();
-        			     break;
-        			} catch (IOException|FontFormatException e) {
-        			     break;
-        			}
-        		}
-        	}
         	if(fontName == null)
-        		fontName = PROP_HEADER_FONT;
+        		fontName = new Font ("Arial", Font.BOLD, 12).getFontName();
         } catch (Exception e) {
 
-        	fontName = PROP_HEADER_FONT;
+        	fontName = new Font ("Arial", Font.BOLD, 12).getFontName();
         }
 
         FontStyleProp fontStyle;
